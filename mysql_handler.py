@@ -40,4 +40,4 @@ def prepare_data_for_update(dbData):
 	print('upload completed, total sentences: ', sentence_total)
 	cursor.close()
 	db.close()
-	sys.exit()
+	#sys.exit()

@@ -1,28 +1,17 @@
-import os, sys
-import tika
-tika.initVM()
-from tika import parser
-import json
+import sys
+import system_handler as sysHandle
+from extracts import extractSentences
 
-def open_dir(targetdir):
-	#open directory when done	
-	rpath = os.path.realpath(targetdir)
-	os.startfile(rpath)
-def getNormalPath(outfile, outdir):
-	TEXT_EXT = ".txt"
+
+
+
+def processText(pathIn, dirOut):
+	pathOut = sysHandle.getRawPath(pathIn, dirOut)
 	
-	temp_path = outfile
-	temp_path = os.path.basename(temp_path)
-	fname, fext = os.path.splitext(temp_path)
-	normal_path =  os.path.join(outdir, fname +  TEXT_EXT) 
-	return(normal_path)
-
-
-def processText(path1, path2):
-	output_path = getNormalPath(path1, path2)
-	parsed = parser.from_file(path1)
-	textout = parsed["content"]
-	with open(output_path, 'w', encoding="utf-8") as file:    
-		file.write(parsed["content"])
-	open_dir(path2)
+	#print(pathIn)
+	#print(pathOut)
+	extractSentences(pathIn, pathOut)
+	#print(cleanList)
+	#sysHandle.writeListToFile(cleanList, pathOut)
+	sysHandle.openDir(dirOut)
 	sys.exit()

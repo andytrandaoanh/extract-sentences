@@ -6,7 +6,7 @@ import lexicon_gui
 win = tk.Tk()
 
 win.title("Sentence Extractor")
-win.geometry("800x580") 
+win.geometry("760x540") 
 win.resizable(0, 0) 
 
 

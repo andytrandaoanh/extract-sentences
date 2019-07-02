@@ -28,16 +28,13 @@ def cleanText(input_text):
 	line = line.replace('\t',' ')
 	return line
 
-def getCorrectPath(fileIn, dirIn, dirOut):
-	TEXT_EXTENSION = ".txt"
+def getCorrectPath(fileIn, dirOut):
 	JSON_EXTENSION = ".json"
 	temp_path = fileIn
-
 	temp_path = os.path.basename(temp_path)
 	fname, fext = os.path.splitext(temp_path)
-	pathIn =  os.path.join(dirIn, fname + TEXT_EXTENSION)
 	pathOut =  os.path.join(dirOut, fname + JSON_EXTENSION) 
-	return(pathIn, pathOut)
+	return(pathOut)
 
 def write_list_to_file(vlist, vpath):
     with open(vpath, 'w', encoding ='utf-8') as file:
@@ -46,12 +43,10 @@ def write_list_to_file(vlist, vpath):
         		file.write(item + "\n")
 
 
-def extractSentences(fileIn, dirIn, dirOut):
-	
-	pathIn, pathOut =  getCorrectPath(fileIn, dirIn, dirOut)
-	#print ('pathIn:', pathIn, 'pathOut', pathOut)
+def extractSentences(pathIn, pathOut):
+	#pathOut =  getCorrectPath(pathIn, dirOut)
 	contents = read_text_file(pathIn)
-
+	#print(contents)
 	sentences = tokenize.sent_tokenize(contents)
 	#print(sentences)
 	index = 0
@@ -69,5 +64,7 @@ def extractSentences(fileIn, dirIn, dirOut):
 	with open(pathOut, 'w', encoding ="utf-8") as outfile:  
 		json.dump(results, outfile)
 
-	open_dir(dirOut)
-	sys.exit()
+	#open_dir(dirOut)
+	#sys.exit()
+	
+
