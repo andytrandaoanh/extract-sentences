@@ -46,7 +46,7 @@ class LexGUI:
         self.tabControl.pack(expand = 1, fill = "both")
 
     def fileDialog(self):
-        self.filename = filedialog.askopenfilename(initialdir = "E:/FULLTEXT/", 
+        self.filename = filedialog.askopenfilename(initialdir = "E:/FULLTEXT/CLEANTEXT", 
             title = "Select a clean text", filetypes = (("Text files", "*.txt"), ("all files", "*.*")))
         if (self.filename):
             self.filepath.set(self.filename) #set the textbox to the file path
@@ -120,7 +120,7 @@ class LexGUI:
         cf.set_config_value(cf.RECENT_BOOK_ID,str(self.bookid.get()))
 
     def fileDialog2(self):
-        self.filename21 = filedialog.askopenfilename(initialdir = "E:/FULLTEXT/", 
+        self.filename21 = filedialog.askopenfilename(initialdir = "E:/FULLTEXT/SENTENCES", 
             title = "Select a JSON file", filetypes = (("JSON files", "*.json"),  ("all files", "*.*")))
         if (self.filename21):
             self.filepath21.set(self.filename21) #set the textbox to the file path
