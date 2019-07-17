@@ -19,4 +19,5 @@ def upload_data(inPath, bookID):
 		temp = sentence[0]
 		dbData.append((int(bookID), temp['sent_cont'], temp['sent_num']))
 		
-	prepare_data_for_update(dbData)
+	sentence_total = prepare_data_for_update(dbData)
+	return sentence_total

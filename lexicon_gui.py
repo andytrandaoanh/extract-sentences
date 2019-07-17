@@ -130,10 +130,10 @@ class LexGUI:
 
     
     def uploadData(self):
-        if(self.filepath21.get() and self.bookid.get()):
-            text_processor_2.uploadData(self.filepath21.get(), self.bookid.get())
+        if(self.filepath21.get() and self.bookid.get() and self.filepath31.get()):
+            text_processor_2.uploadData(self.filepath21.get(), self.bookid.get(), self.filepath31.get())
         else:
-            messagebox.showwarning("Error", "Missing input file or Book ID")
+            messagebox.showwarning("Error", "Missing input file or Book ID or Settings")
    
 
 

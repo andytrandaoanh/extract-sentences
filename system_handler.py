@@ -87,12 +87,12 @@ def getDateStamp():
 	getDateStamp = str(datetime.datetime.now())
 	return(getDateStamp)
 
-def getDatedFilePath(dirOut):
+def getDatedFilePath(prefix, dirOut):
 	fileName = str(datetime.datetime.now())
 	fileName = fileName.replace("-", "_")
 	fileName = fileName.replace(":", "_")
 	fileName = fileName.replace(".", "_")
 	fileName = fileName.replace(" ", "_at_")
-	temp_path = "Extract_Sentence_on_" + fileName + ".txt"
+	temp_path = prefix + fileName + ".txt"
 	pathOut =  os.path.join(dirOut, temp_path) 
 	return(pathOut)

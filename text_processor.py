@@ -9,7 +9,8 @@ def processText(pathIn, dirOut, dirLog):
 	
 	#print('pathIn', pathIn, '\ndirOut', dirOut, '\ndirLog', dirLog)
 	pathOut = sysHandle.getRawPath(pathIn, dirOut)
-	pathLog = sysHandle.getDatedFilePath(dirLog)
+	filePrefix = "Extract_Sentence_on_"
+	pathLog = sysHandle.getDatedFilePath(filePrefix, dirLog)
 	#print('pathLog:', pathLog)
 	
 	#print(pathIn)
