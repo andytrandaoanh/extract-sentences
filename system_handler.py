@@ -1,4 +1,4 @@
-import os, sys
+import os, sys, datetime
 
 def openDir(targetdir):
 	#open directory when done	
@@ -81,3 +81,18 @@ def loadDictionaries(dirDic):
 	dicData = list(dict.fromkeys(bigDic))
 	dicData.sort()
 	return dicData
+
+
+def getDateStamp():
+	getDateStamp = str(datetime.datetime.now())
+	return(getDateStamp)
+
+def getDatedFilePath(dirOut):
+	fileName = str(datetime.datetime.now())
+	fileName = fileName.replace("-", "_")
+	fileName = fileName.replace(":", "_")
+	fileName = fileName.replace(".", "_")
+	fileName = fileName.replace(" ", "_at_")
+	temp_path = "Extract_Sentence_on_" + fileName + ".txt"
+	pathOut =  os.path.join(dirOut, temp_path) 
+	return(pathOut)
