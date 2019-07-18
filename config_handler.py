@@ -28,7 +28,7 @@ class ConfigHandler:
         self.RECENT_DATA[self.RECENT_OUTPUT_DIR2] = os.getcwd()
         self.RECENT_DATA[self.RECENT_OUTPUT_DIR3] = os.getcwd()
         self.RECENT_DATA[self.RECENT_OUTPUT_DIR4] = os.getcwd()
-        self.RECENT_DATA[self.RECENT_BOOK_ID] = 1
+        self.RECENT_DATA[self.RECENT_BOOK_ID] = "1"
 
 
     def read_config(self):
@@ -83,7 +83,7 @@ class ConfigHandler:
         else:
             self.prepare_default_config()
 
-        self.RECENT_DATA[key] = value
+        self.RECENT_DATA[key] = str(value)
 
         self.write_config()
 
@@ -92,7 +92,7 @@ class ConfigHandler:
 
 
 
-def main():
+if __name__ == "__main__":
     cf = ConfigHandler()
     cf.reset_config_file()
 

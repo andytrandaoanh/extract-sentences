@@ -3,9 +3,25 @@ import system_handler as sysHandle
 from mysql_data import getWordList
 from database_handler import upload_data
 
-def uploadData(pathIn, bookID):
-	#print(pathIn, bookID)
-	upload_data(pathIn, bookID)
-	#sysHandle.openDir(outDir)
-	sys.exit()
+def uploadData(pathIn, bookID, dirLog):
 
+	
+	filePrefix = "Upload_Sentences_To_MySQL_on_"
+	pathLog = sysHandle.getDatedFilePath(filePrefix, dirLog)
+
+
+	logData = []
+	dateStamp = sysHandle.getDateStamp()
+	logData.append("Starting to upload sentences at " + dateStamp)
+
+	#print(pathIn, bookID)
+	sentence_total = upload_data(pathIn, bookID)
+	logData.append("Total sentences written to MySQL " + sentence_total)
+	#sysHandle.openDir(outDir)
+		
+	dateStamp = sysHandle.getDateStamp()
+	logData.append("Sentence uploading completed at " + dateStamp)
+
+
+	sysHandle.writeListToFile(logData, pathLog)
+	sys.exit()
